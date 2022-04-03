@@ -4,13 +4,13 @@ Feature: library app login feature
 
   Background: Assuming user is on the login page
     Given user is on the login page
-
+@smoke @regression
   Scenario: login as librarian
     When user enters librarian username
     And user enters librarian password
     Then user should see the dashboard
 
-
+@smoke @regression
     Scenario: login as student
       When user enters student username
       And user enters student password
