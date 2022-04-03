@@ -23,20 +23,23 @@ public class Login_StepDefinitions {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
     }
+
     @When("user enters librarian username")
     public void user_enters_librarian_username() {
-      loginPage.inputUserName.sendKeys(ConfigurationReader.getProperty("librarianUserName"));
+        loginPage.inputUserName.sendKeys(ConfigurationReader.getProperty("librarianUserName"));
     }
+
     @When("user enters librarian password")
     public void user_enters_librarian_password() {
         loginPage.inputPassword.sendKeys(ConfigurationReader.getProperty("librarianPassword"));
         loginPage.signInButton.click();
     }
+
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 20);
         wait.until(ExpectedConditions.visibilityOf(dashboardPage.librarySignDash));
-  Assert.assertTrue(dashboardPage.librarySignDash.isDisplayed());
+        Assert.assertTrue(dashboardPage.librarySignDash.isDisplayed());
 
 
     }
@@ -45,6 +48,7 @@ public class Login_StepDefinitions {
     public void user_enters_student_username() {
         loginPage.inputUserName.sendKeys(ConfigurationReader.getProperty("studentUserName"));
     }
+
     @When("user enters student password")
     public void user_enters_student_password() {
         loginPage.inputPassword.sendKeys(ConfigurationReader.getProperty("studentPassword"));
@@ -52,17 +56,30 @@ public class Login_StepDefinitions {
     }
 
 
-    @When("user enters librarian {string}")
-    public void userEntersLibrarian(String username) {
+    @When("user enters librarian username {string}")
+    public void userEntersLibrarianUser(String username) {
         loginPage.inputUserName.sendKeys(username);
-
     }
 
-    @When("user enters student {string}")
-    public void userEntersStudent(String password) {
+    @And("user enters librarian password {string}")
+    public void userEntersLibrarianPass(String password) {
+        loginPage.inputPassword.sendKeys(password);
+        loginPage.signInButton.click();
+}
+
+
+
+    @When("user enters student username {string}")
+    public void userEntersStudent(String username) {
+        loginPage.inputUserName.sendKeys(username);
+    }
+
+    @And("user enters student password {string}")
+    public void userEntersStudentPass(String password) {
         loginPage.inputPassword.sendKeys(password);
         loginPage.signInButton.click();
     }
+
 
     @When("I login using {string} and {string}")
     public void iLoginUsingAnd(String username, String password) {
