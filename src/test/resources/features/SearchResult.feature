@@ -1,6 +1,6 @@
 Feature: search result feature
   User Story: As a user, I should be able to login as librarian.
-@smoke @regression
+ @regression
   Scenario: Table columns names
     Given user is on the login page
     And I login as a librarian
