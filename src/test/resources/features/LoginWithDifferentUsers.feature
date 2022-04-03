@@ -1,6 +1,6 @@
 Feature:  data driven testing with diff user accounts
   User story: As a user, I should be able to login with different users using their correct emails and passwords.
-
+@regression
   Scenario Outline: Verify user Information <email>
     Given user is on the login page
     When I login using "<email>" and "<password>"

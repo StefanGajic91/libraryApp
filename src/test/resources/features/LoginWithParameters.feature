@@ -16,8 +16,8 @@ Feature: library app login feature
         Then user should see the dashboard
 @regression
         Scenario: Login as librarian in the same line
-          When I login using "librarian1@library" and "qu9mrvur"
+          When I login using "librarian1@library" and "rs4BNN9G"
           Then user should see the dashboard
-          And there should be "23" users
+          And there should be "138" users
 
 
