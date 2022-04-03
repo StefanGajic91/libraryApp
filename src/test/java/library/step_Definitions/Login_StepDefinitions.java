@@ -34,8 +34,8 @@ public class Login_StepDefinitions {
     }
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOf(dashboardPage.librarySignDash));
+       // WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+       // wait.until(ExpectedConditions.visibilityOf(dashboardPage.librarySignDash));
   Assert.assertTrue(dashboardPage.librarySignDash.isDisplayed());
 
 
