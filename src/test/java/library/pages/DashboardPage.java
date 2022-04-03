@@ -30,6 +30,9 @@ public class DashboardPage {
     @FindBy(xpath = "//a[@id='navbarDropdown']//span")
     public WebElement accountName;
 
+    @FindBy(xpath = "//a[@class='navbar-brand']")
+    public WebElement librarySignDash;
+
 
 
 

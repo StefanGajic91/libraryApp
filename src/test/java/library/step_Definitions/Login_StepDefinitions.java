@@ -9,6 +9,8 @@ import library.pages.LoginPage;
 import library.utilities.ConfigurationReader;
 import library.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Login_StepDefinitions {
 
@@ -32,9 +34,9 @@ public class Login_StepDefinitions {
     }
     @Then("user should see the dashboard")
     public void user_should_see_the_dashboard() {
-   String actualURL = Driver.getDriver().getCurrentUrl();
-   String expectedURL = "https://library1.cydeo.com/login.html";
-        Assert.assertEquals(expectedURL, actualURL);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(dashboardPage.librarySignDash));
+  Assert.assertTrue(dashboardPage.librarySignDash.isDisplayed());
 
 
     }
@@ -48,6 +50,7 @@ public class Login_StepDefinitions {
         loginPage.inputPassword.sendKeys(ConfigurationReader.getProperty("studentPassword"));
         loginPage.signInButton.click();
     }
+
 
     @When("user enters librarian {string}")
     public void userEntersLibrarian(String username) {
